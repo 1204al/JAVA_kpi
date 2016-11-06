@@ -36,10 +36,15 @@ public class Customer {
     }
 
     public double getTotalOrderValue() {
-        throw new NotImplementedException();
+        return orders.stream().mapToDouble(Order::getValue).sum();
+
     }
 
     public double getMostExpensiveItemValue() {
-        throw new NotImplementedException();
+        return orders.stream()
+                .flatMap(o->o.getLineItems().stream())
+                .mapToDouble(LineItem::getValue)
+                .max().orElse(0);
+        //throw new NotImplementedException();
     }
 }

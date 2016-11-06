@@ -37,6 +37,7 @@ public class Order {
     }
 
     public List<LineItem> getLineItems() {
+
         return this.lineItems;
     }
 
@@ -46,8 +47,11 @@ public class Order {
     }
 
     public double getValue() {
+
+        return lineItems.stream().mapToDouble(li -> li.getValue()).sum();
+
         // get total of all lineItems
-        throw new NotImplementedException();
+       // throw new NotImplementedException();
     }
 
     public double getMostExpensiveItemValue() {

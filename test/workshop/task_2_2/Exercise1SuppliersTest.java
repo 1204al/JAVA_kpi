@@ -19,7 +19,7 @@ public class Exercise1SuppliersTest extends CompanyDomain
     @Test
     public void findSupplierNames()
     {
-        List<String> supplierNames = null;
+        List<String> supplierNames = Arrays.stream(company.getSuppliers()).map(Supplier::getName).collect(Collectors.toList());
 
         List<String> expectedSupplierNames = Arrays.asList(
                 "Shedtastic",
@@ -40,8 +40,8 @@ public class Exercise1SuppliersTest extends CompanyDomain
     @Test
     public void countSuppliersWithMoreThanTwoItems()
     {
-        Predicate<Supplier> moreThanTwoItems = null;
-        int suppliersWithMoreThanTwoItems = 0;
+        Predicate<Supplier> moreThanTwoItems = s->s.getItemNames().length>2;
+        int suppliersWithMoreThanTwoItems = (int)Arrays.stream(company.getSuppliers()).filter(moreThanTwoItems).count();
         Assert.assertEquals("suppliers with more than 2 items", 5, suppliersWithMoreThanTwoItems);
     }
 

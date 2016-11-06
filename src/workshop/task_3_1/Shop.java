@@ -5,9 +5,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Random;
 
-
 public class Shop {
-
     private final String name;
     private final Random random;
 

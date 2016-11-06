@@ -2,6 +2,7 @@ package MyLinkedList_MyArrayList;
 
 
 import java.util.ArrayList;
+class A{}
 
 public class Main {
     static void print_list(MyList<Integer> l) {

@@ -46,6 +46,11 @@ public class MyArrayList<E> implements MyList<E>, RandomAccess {
         }
     }
 
+    public void addAll1(MyList<E> c) {
+        for (int i = 0; i < c.size(); i++) {
+            add(c.get(i));
+        }
+    }
     @Override
     public void addAll(int index, MyList<? extends E> c) {
         for (int i = 0; i < c.size(); i++) {
